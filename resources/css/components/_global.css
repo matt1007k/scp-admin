@@ -1,0 +1,22 @@
+html {
+    @apply bg-primarymain;
+    /* cambio de azul */
+    /* @apply bg-primary; */
+    &.dark {
+        @apply bg-darkmode-800;
+        body {
+            @apply text-slate-300;
+            *,
+            ::before,
+            ::after {
+                @apply border-white/5;
+            }
+        }
+    }
+    body {
+        @apply overflow-x-hidden px-8 pt-3 text-slate-800 antialiased text-sm font-inter;
+        @include media-breakpoint-down(sm) {
+            @apply px-3;
+        }
+    }
+}

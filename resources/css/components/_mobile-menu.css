@@ -1,0 +1,74 @@
+.mobile-menu {
+    @apply fixed z-[60] -mx-8 -mt-5 mb-6 w-full border-b border-white/[0.08] bg-primarymain/90 dark:bg-darkmode-800;
+    &:before {
+        content: "";
+        @apply invisible fixed inset-x-0 z-10 h-screen w-full bg-black/90 opacity-0 transition-opacity duration-200 ease-in-out;
+    }
+    &.mobile-menu--active {
+        &:before {
+            content: "";
+            @apply visible opacity-100;
+        }
+        .scrollable {
+            @apply ml-0;
+            .mobile-menu-toggler {
+                @apply visible opacity-100;
+            }
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        @apply -mx-3;
+    }
+    .mobile-menu-bar {
+        height: 70px;
+        @apply flex items-center px-8;
+        @include media-breakpoint-down(sm) {
+            @apply px-3;
+        }
+    }
+    .scrollable {
+        @apply fixed top-0 left-0 z-20 -ml-[100%] h-screen w-[270px] bg-primarymain transition-all duration-300 ease-in-out dark:bg-darkmode-800;
+        .mobile-menu-toggler {
+            @apply invisible fixed top-0 right-0 mt-4 mr-4 opacity-0 transition-opacity duration-200 ease-in-out;
+        }
+        .simplebar-track.simplebar-vertical {
+            .simplebar-scrollbar:before {
+                @apply bg-black/50;
+            }
+        }
+    }
+    ul {
+        &.menu__sub-open {
+            @apply block;
+        }
+        li {
+            max-width: 1280px;
+            @apply mx-auto w-full;
+            ul {
+                @apply mx-4 my-1 hidden rounded-lg bg-black/10 dark:bg-darkmode-700;
+                .menu {
+                    @apply px-4;
+                }
+                ul {
+                    @apply mx-0 hidden rounded-lg bg-black/10 dark:bg-darkmode-600;
+                }
+            }
+        }
+    }
+    .menu__devider {
+        @apply relative h-px w-full bg-white/[0.08];
+    }
+    .menu {
+        height: 50px;
+        @apply flex items-center px-6 text-white;
+        .menu__title {
+            @apply ml-3 flex w-full items-center;
+            .menu__sub-icon {
+                @apply ml-auto transition duration-100 ease-in;
+                svg {
+                    @apply h-5 w-5;
+                }
+            }
+        }
+    }
+}
