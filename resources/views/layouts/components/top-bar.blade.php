@@ -4,7 +4,7 @@
   <div class="h-full flex items-center">
     <!-- BEGIN: Logo -->
     <a href="" class="z-10 -intro-x hidden md:flex">
-      <img class="w-28" src="{{ Vite::image('logos/logo-dark.png') }}" alt="Logo" />
+      <img class="w-28" {{-- src="{{ Vite::image('logos/logo-dark.png') }}" --}} alt="Logo" />
     </a>
     <!-- END: Logo -->
     <!-- BEGIN: Breadcrumb -->

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\v1\PaymentsController;
-use App\Http\Controllers\Api\V1\VerifyUserController;
+use App\Http\Controllers\Api\v1\VerifyUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

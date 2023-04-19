@@ -15,6 +15,7 @@ export default defineConfig({
                     dest: "assets/pdf",
                 },
             ],
+            build: true, 
         }),
         laravel({
             input: ["resources/css/app.css", "resources/js/app.js"],
