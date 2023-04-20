@@ -1540,9 +1540,7 @@
           </tbody>
         </table>
       </div>
-    </div>@endforeach
-  </div>
-  <script type="text/php">
+    </div>@endforeach</div><script type="text/php">
     if (isset($pdf)) {
                 $x = 10;
                 $y = 10;
@@ -1553,9 +1551,4 @@
                 $word_space = 0.0;  //  default
                 $char_space = 0.0;  //  default
                 $angle = 0.0;   //  default
-                $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
-            }
-</script>
-</body>
-
-</html>
+                $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);}</script></body></html>

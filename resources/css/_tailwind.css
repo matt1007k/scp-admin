@@ -1,5 +1,7 @@
-@multiple-tailwind;
-/* @config "tailwind.config.js"; */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
