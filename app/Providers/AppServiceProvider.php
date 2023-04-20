@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
         $menus = MenuService::getMenus();
 
         view()->composer('layouts.side-menu', fn($view) => $view->with('menus', $menus));
-        /* Vite::macro('image', fn(string $asset) => $this->asset("resources/images/{$asset}")); */
+        Vite::macro('image', fn(string $asset) => $this->asset("resources/images/{$asset}"));
     }
 }
