@@ -18,6 +18,11 @@ require __DIR__ . '/auth.php';
 
 Route::redirect('/', '/login', 301);
 
+Route::get('/reporte/por-anios/{params_code}', [ReporteController::class, 'porAnios'])->name('reports.poranios');
+Route::get('/reporte/por-anio/{params_code}', [ReporteController::class, 'porAnio'])->name('reports.poranio');
+Route::get('/reporte/judicial/{params_code}', [ReporteController::class, 'byJudicial'])->name('reports.porjudicial');
+Route::get('/reporte/boleta/{params_code}', [ReporteController::class, 'byVoucher'])->name('reports.byVoucher');
+
 Route::middleware('auth')->group(function () {
 
   Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -49,10 +54,6 @@ Route::middleware('auth')->group(function () {
     Route::post('forms/upload', [FormsController::class, 'uploadFile'])->name('forms.upload');
   });
 
-  Route::get('/reporte/por-anios/{params_code}', [ReporteController::class, 'porAnios'])->name('reports.poranios');
-  Route::get('/reporte/por-anio/{params_code}', [ReporteController::class, 'porAnio'])->name('reports.poranio');
-  Route::get('/reporte/judicial/{params_code}', [ReporteController::class, 'byJudicial'])->name('reports.porjudicial');
-  Route::get('/reporte/boleta/{params_code}', [ReporteController::class, 'byVoucher'])->name('reports.byVoucher');
 
   Route::controller(ProfileController::class)->group(function () {
     Route::get('/account-setting', 'setting')->name('account-setting');

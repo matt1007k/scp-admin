@@ -1,4 +1,4 @@
-@extends('layouts.side-menu')
+@extends('layouts.main')
 
 @section('head', 'Error 403')
 

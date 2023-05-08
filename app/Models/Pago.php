@@ -79,7 +79,7 @@ class Pago extends Model
     return $this->created_at->format('d-m-Y');
   }
 
-  public function getFechaNacAttribute(): string | null
+  public function getFechaNacAttribute()
   {
     return $this->fecha_nacimiento
       ? Carbon::parse($this->fecha_nacimiento)->format('d/m/Y')

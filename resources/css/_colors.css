@@ -1,7 +1,7 @@
 /* Default colors */
 :root {
-    --color-primary: theme("colors.rgb.blue.900");
-    --color-primarymain: 22 35 67;
+    --color-primary: theme("colors.rgb.teal.800");
+    --color-primarymain: theme("colors.rgb.teal.900");
     --color-secondary: theme("colors.rgb.slate.200");
     --color-success: theme("colors.rgb.teal.600");
     --color-info: theme("colors.rgb.cyan.500");
@@ -20,7 +20,7 @@
     --color-slate-700: theme("colors.rgb.slate.700");
     --color-slate-800: theme("colors.rgb.slate.800");
     --color-slate-900: theme("colors.rgb.slate.900");
-    --color-primarylight: theme("colors.rgb.blue.900");
+    --color-primarylight: theme("colors.rgb.teal.800");
 }
 
 /* Default dark-mode colors */

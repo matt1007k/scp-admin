@@ -38,7 +38,8 @@ class Persona extends Model
     return $query->where(function ($query) use ($concat, $value) {
       $query->where('codigo_modular', 'LIKE', '%' . $value . '%')
         ->orWhere('dni', 'LIKE', '%' . $value . '%')
-        ->orWhereRaw("CONCAT($concat) LIKE '%" . $value . "%'");
+        ->whereRaw("concat(apellido_paterno, ' ', apellido_materno, ' ',nombre ) like '%" . $value . "%' ")
+        ->orWhereRaw("concat(nombre, ' ', apellido_paterno, ' ', apellido_materno) like '%" . $value . "%' ");
     });
   }
 

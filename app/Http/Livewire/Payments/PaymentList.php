@@ -4,11 +4,12 @@ namespace App\Http\Livewire\Payments;
 
 use App\Models\Pago;
 use App\Models\Periodo;
-use App\Services\MesesService;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\View\View;
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
+use App\Services\MesesService;
+use Illuminate\Support\Benchmark;
+use Illuminate\Support\Facades\Gate;
 
 class PaymentList extends Component
 {
@@ -33,7 +34,7 @@ class PaymentList extends Component
   public function mount(): void
   {
     $this->year = date('Y');
-    $this->month = date('m');
+    $this->month = 04;
   }
 
   public function render(): View
@@ -41,11 +42,24 @@ class PaymentList extends Component
     $years = Periodo::orderBy('anio', 'desc')->get();
     $months = (new MesesService)->getMeses();
     $payments = Pago::query()
+      ->select('id', 'persona_id', 'anio', 'mes', 'total_haber', 'total_descuento', 'monto_imponible', 'monto_liquido')
+      ->with('persona:id,nombre,apellido_paterno,apellido_materno')
       ->where('anio', $this->year)
       ->where('mes', $this->month)
       ->search($this->search)
       ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
       ->paginate($this->perPage);
+
+    /*  $payments = cache()->remember('payments_' . $this->year . '_' . $this->month . '_' . $this->search . '_' . $this->sortField . '_' . $this->sortAsc . '_' . $this->perPage, 300, function () {
+      return Pago::query()
+        ->select('id', 'persona_id', 'anio', 'mes', 'total_haber', 'total_descuento', 'monto_imponible', 'monto_liquido')
+        ->with('persona:id,nombre,apellido_paterno,apellido_materno')
+        ->where('anio', $this->year)
+        ->where('mes', $this->month)
+        ->search($this->search)
+        ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+        ->paginate($this->perPage);
+    }); */
 
     return view('livewire.payments.payment-list', compact('payments', 'years', 'months'));
   }

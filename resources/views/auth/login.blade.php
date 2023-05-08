@@ -3,10 +3,10 @@
 @section('head', 'Iniciar Sesión')
 
 @section('content')
-    <div class="relative h-screen w-full bg-gradient-to-r from-sky-500 to-indigo-500 p-0">
+    <div class="relative h-screen w-full bg-gradient-to-r from-sky-500 to-blue-500 p-0">
 
         <div class="z-10 w-full h-full"
-            style="background-image: url({{ asset('build/assets/images/logos/logo-drea.png') }}); background-repeat: no-repeat; background-position: center center; background-size: cover; opacity: 5%;">
+            style="background-image: url({{ asset('build/assets/images/logos/logo-drea.svg') }}); background-repeat: no-repeat; background-position: center center; background-size: 35% ; opacity: 5%;">
         </div>
         <div
             class="absolute inset-0 z-50 isolate w-full h-full flex flex-col  justify-start items-center md:justify-center px-5 sm:px-0">

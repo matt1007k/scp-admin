@@ -59,7 +59,7 @@
             <div>
                 <label class="form-label font-medium">Agregar Haber</label>
                 <div class="relative">
-                    {{ Form::text('assets', null, ['x-model' => 'searchAsset', 'placeholder' => 'Buscar por descripción', 'class' => 'form-control  w-full border bestupper ', 'autocomplete' => 'off']) }}
+                    {{ Form::text('assets', null, ['wire:model.debounce.300ms' => 'searchAsset', 'placeholder' => 'Buscar por descripción', 'class' => 'form-control  w-full border bestupper ', 'autocomplete' => 'off']) }}
 
                     <ul class="shadow-lg rounded-sm box absolute z-50 min-w-[200px]" x-show="openSearchAsset"
                         @click.outside="openSearchAsset = false" @keydown.escape="openSearchAsset = false"
@@ -85,7 +85,7 @@
             <div>
                 <label class="form-label font-medium">Agregar Descuento</label>
                 <div class="relative">
-                    {{ Form::text('discounts', null, ['x-model' => 'searchDiscount', 'placeholder' => 'Buscar por descripción', 'class' => 'form-control  w-full border bestupper ', 'autocomplete' => 'off']) }}
+                    {{ Form::text('discounts', null, ['wire:model.debounce.300ms' => 'searchDiscount', 'placeholder' => 'Buscar por descripción', 'class' => 'form-control  w-full border bestupper ', 'autocomplete' => 'off']) }}
 
                     <ul class="shadow-lg rounded-sm box absolute z-50 min-w-[200px]" x-show="openSearchDiscount"
                         @click.outside="openSearchDiscount = false" @keydown.escape="openSearchDiscount = false"

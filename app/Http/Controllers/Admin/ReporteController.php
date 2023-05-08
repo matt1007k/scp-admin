@@ -18,7 +18,7 @@ use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class ReporteController extends Controller
 {
-  public function __construct()
+  /* public function __construct()
   {
     $this->middleware('can:pagos.consultar')
       ->only([
@@ -29,7 +29,7 @@ class ReporteController extends Controller
         'searchByYearAndMonth',
         'porMes',
       ]);
-  }
+  } */
 
   public function searchByYears(Request $request)
   {
